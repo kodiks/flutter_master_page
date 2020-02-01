@@ -1,7 +1,8 @@
 import 'package:example/app/generic_page.dart';
 import 'package:flutter/material.dart';
-import 'package:master_page/master_page.dart';
 import 'dart:math' as math;
+
+import 'package:master_page/master_page.dart';
 
 void main() => runApp(MyApp());
 
