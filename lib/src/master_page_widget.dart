@@ -21,6 +21,10 @@ class MasterPageWidget extends StatefulWidget {
   /// When you want confirm before main page closed you can set alert dialog.
   final AlertDialog closeConfirmAlertDialog;
 
+  final FloatingActionButtonLocation floatingActionButtonLocation;
+
+  final Widget floatingActionButton;
+
   const MasterPageWidget({
     Key key,
     @required this.appPages,
@@ -29,6 +33,8 @@ class MasterPageWidget extends StatefulWidget {
     this.closeConfirmAlertDialog,
     this.bottomNavigationBar,
     this.bottomNavigationBarType,
+    this.floatingActionButton,
+    this.floatingActionButtonLocation,
   })  : assert(appPages != null),
         assert(firstPageName != null),
         super(key: key);
@@ -129,6 +135,8 @@ class _MasterPageWidgetState extends State<MasterPageWidget> {
       child: Stack(
         children: <Widget>[
           Scaffold(
+            floatingActionButtonLocation: widget.floatingActionButtonLocation,
+            floatingActionButton: widget.floatingActionButton,
             bottomNavigationBar: widget.bottomNavigationBar ??
                 BottomNavigationBar(
                   elevation: 16.0,
