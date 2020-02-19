@@ -26,6 +26,7 @@ class MasterPageWidget extends StatefulWidget {
   final Widget floatingActionButton;
 
   final Color selectedItemColor;
+  final Color unSelectedItemColor;
 
   const MasterPageWidget({
     Key key,
@@ -38,6 +39,7 @@ class MasterPageWidget extends StatefulWidget {
     this.floatingActionButton,
     this.floatingActionButtonLocation,
     this.selectedItemColor = Colors.blue,
+    this.unSelectedItemColor = Colors.black,
   })  : assert(appPages != null),
         assert(firstPageName != null),
         super(key: key);
@@ -163,7 +165,7 @@ class _MasterPageWidgetState extends State<MasterPageWidget> {
 
   List<BottomNavigationBarItem> _buildNavigationBarItem() {
     return widget.appPages.map((appPage) {
-      final Color textColor = appPage.name == _activePageName ? Theme.of(context).primaryColor : Colors.black;
+      final Color textColor = appPage.name == _activePageName ? widget.selectedItemColor : widget.unSelectedItemColor;
 
       return BottomNavigationBarItem(
         icon: Icon(appPage.icon ?? Icons.star, color: textColor),
